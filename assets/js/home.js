@@ -40,7 +40,7 @@ $(document).ready(() => {
 
     articleStart = 5;
 
-    addArticles();
+    addArticles(news.articles, articleStart);
 
     $('#loadMore').on('click', () => {
         articleStart += 5;

@@ -27,14 +27,160 @@
     </div>
   </div>
 
-  <div id="general-container" class="ui main text container">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla suscipit fugiat natus animi magni libero expedita minus repudiandae saepe tempora ea optio numquam perspiciatis molestias, rem, fuga eveniet corporis architecto?</p>
+  <div id="general-container" class="ui main container">
+      <header id="home-header">
+        <h1 class="ui center aligned header">Contact Us</h1>
+        <h3 class="ui center aligned header">
+          If you want to get in touch for any reason, please fill out the form
+          below and we will get back to you.
+        </h3>
+      </header>
+
+      <div class="ui hidden divider"></div>
+
+      <section>
+        <div id="form-container" class="ui segment">
+          <form class="ui form">
+            <div class="inline field">
+              <label for="contactname" class="three wide field">Name</label>
+              <input
+                type="text"
+                name="contactname"
+                id="contactname"
+                class="eight wide field"
+                autofocus
+                autocomplete="name"
+                required
+                pattern="[A-Z][a-z]+( [A-Z][a-z]+)*"
+                title="Please enter a name (Surname optional) with First Letter capitalised"
+              />
+            </div>
+            <div class="inline field">
+              <label for="contactemail" class="three wide field"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                name="contactemail"
+                id="contactemail"
+                pattern="^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"
+                class="eight wide field"
+                autocomplete="email"
+                required
+                title="Please enter a valid email address"
+              />
+            </div>
+            <div class="radio-element">
+              <p>Is this an urgent matter?</p>
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input
+                      type="radio"
+                      name="urgent"
+                      id="urgentY"
+                      title="It is an urgent matter"
+                    />
+                    <label for="urgentY">Yes</label>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui radio checkbox">
+                    <input
+                      type="radio"
+                      name="urgent"
+                      id="urgentN"
+                      checked
+                      title="It is not an urgent matter"
+                    />
+                    <label for="urgentN">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline field">
+              <label class="three wide field">Query Type</label>
+              <div id="type" class="ui eight wide field selection dropdown">
+                <i class="dropdown icon"></i>
+                <div class="text">
+                  <i class="question icon"></i>
+                  Question
+                </div>
+                <div class="menu">
+                  <div class="active item">
+                    <i class="question icon"></i>
+                    Question
+                  </div>
+                  <div class="item">
+                    <i class="attention icon"></i>
+                    Complaint
+                  </div>
+                  <div class="item">
+                    <i class="user plus icon"></i>
+                    Request to Join
+                  </div>
+                  <div class="item">
+                    <i class="heart icon"></i>
+                    Compliment (Thank you)
+                  </div>
+                  <div class="item">
+                    <i class="conversation icon"></i>
+                    Other (Tell us below)
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui hidden tall divider"></div>
+            <p>Please tell us more about the issue below.</p>
+            <div class="field">
+              <label for="details" class="three wide field">Details</label>
+              <br>
+              <textarea
+                name="details"
+                class="twelve wide field"
+                id="details"
+                cols="30"
+                rows="10"
+              ></textarea>
+            </div>
+            <div class="ui hidden divider"></div>
+            <button class="ui orange button" type="submit">
+              <i class="paper plane icon"></i>
+              Send
+            </button>
+            <button class="ui red button" type="reset">
+              <i class="eraser icon"></i>
+              Clear the form
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <div class="ui basic modal">
+        <div class="ui icon header">
+          <i class="check icon"></i>
+          Message Sent!
+        </div>
+        <div class="content">
+          <p>Thank you for you query, please expect a response shortly.</p>
+        </div>
+        <div class="actions">
+          <div class="ui red basic cancel inverted button">
+            <i class="remove icon"></i>
+            Close
+          </div>
+        </div>
+      </div>
+
   </div>
 
   <div class="ui inverted vertical footer segment">
     <div class="ui center aligned container">
       <img src="/favicon.png" class="ui centered mini image">
       <p id="copy">Copyright 2022 &copy; Piotr Bogdan Placzek (20097618)</p>
+      <div class="ui inverted link list">
+        <p>Made using <a class="item" href="https://semantic-ui.com/" target="_blank" rel="noopener noreferrer">Semantic UI</a>, <a class="item" href="https://jquery.com/" target="_blank" rel="noopener noreferrer">jQuery</a>, <a class="item" href="https://icons8.com/" target="_blank" rel="noopener noreferrer">icons8</a>, <a class="item" href="https://github.com/SauravKanchan/NewsAPI" target="_blank" rel="noopener noreferrer">NewsAPI</a>, <a class="item" href="https://fancyapps.com/docs/ui/fancybox/" target="_blank" rel="noopener noreferrer">FancyBox</a> and <a class="item" href="https://github.com/webfashionist/RichText" target="_blank" rel="noopener noreferrer">RichText</a></p>
+      </div>
     </div>
   </div>
 
@@ -45,7 +191,10 @@
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"
     integrity="sha256-CgSoWC9w5wNmI1aN8dIMK+6DPelUEtvDr+Bc2m/0Nx8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/webfashionist/RichText@v.1.0.16/src/richtext.min.css">
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/gh/webfashionist/RichText@v.1.0.16/src/jquery.richtext.min.js"></script>
   <script src="assets/js/contact.js"></script>
 </body>
 

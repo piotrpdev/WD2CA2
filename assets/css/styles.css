@@ -43,3 +43,15 @@ body {
     transform: scale(1.05);
     cursor: pointer;
 }
+
+#form-container {
+  padding: 2em;
+}
+
+.list > p > a.item {
+  margin-left: 0.3em !important;
+}
+
+.list > p > a:nth-last-child(2) {
+  margin-right: 0.3em !important;
+}

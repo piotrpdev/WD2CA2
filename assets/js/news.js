@@ -1,6 +1,6 @@
 // ? JSON response generated from a free news API: https://github.com/SauravKanchan/NewsAPI (specifically https://saurav.tech/NewsAPI/top-headlines/category/entertainment/gb.json)
 
-const news = {
+const fallback_news = {
   status: "ok",
   totalResults: 68,
   articles: [
@@ -930,3 +930,24 @@ const news = {
     },
   ],
 };
+
+const useLiveNewsInDev = false;
+
+let news = {};
+
+async function useLiveNews() {
+  news = await (await fetch("https://saurav.tech/NewsAPI/top-headlines/category/entertainment/gb.json")).json();
+}
+
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+  console.log("Running on localhost")
+  if (useLiveNewsInDev) {
+    console.log("Using live news")
+    useLiveNews();
+  } else {
+    console.log("Using fallback news")
+    news = fallback_news;
+  }
+} else {
+  useLiveNews();
+}
