@@ -133,7 +133,7 @@
             <div class="ui hidden tall divider"></div>
             <p>Please tell us more about the issue below.</p>
             <div class="field">
-              <label for="details" class="three wide field">Details</label>
+              <label for="details" class="five wide field">Details (0 words)</label>
               <br>
               <textarea
                 name="details"
@@ -142,6 +142,22 @@
                 cols="30"
                 rows="10"
               ></textarea>
+            </div>
+            <div class="ui hidden divider"></div>
+            <div class="inline field">
+              <label for="captcha" class="three wide field"
+                >Captcha (2+2)</label
+              >
+              <input
+                type="number"
+                name="captcha"
+                id="captcha"
+                pattern="^[0-9]+$"
+                class="eight wide field"
+                autocomplete="off"
+                required
+                title="Please enter a valid captcha answer"
+              />
             </div>
             <div class="ui hidden divider"></div>
             <button class="ui orange button" type="submit">
