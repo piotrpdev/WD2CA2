@@ -2,8 +2,13 @@
 // https://reader.tutors.dev/#/talk/website-development-2.netlify.app/topic-00-Assignments/unit-2-Assignment-2/talk-1/assignment-2a.pdf
 
 function readLessOrMore() {
-    $(this).prev().toggle();
-    $(this).text($(this).text() === "Show Description" ? "Hide Description" : "Show Description");
+    if ($(this).prev().hasClass('hiddenDescription')) {
+        $(this).text("Hide Description");
+        $(this).prev().fadeIn(600).removeClass('hiddenDescription');
+    } else {
+        $(this).text("Show Description");
+        $(this).prev().fadeOut(300).addClass('hiddenDescription');
+    }
 }
 
 function addArticles(articles = news.articles, articleStart = 5, articleEnd = articleStart + 5) {
@@ -17,10 +22,10 @@ function addArticles(articles = news.articles, articleStart = 5, articleEnd = ar
                 <div class="meta">
                     <span>${articles[i].source.name || "JDN"} | ${articles[i].author || "Jane Doe"} | ${new Date(articles[i].publishedAt || Date.now()).toLocaleDateString("en-IE", {dateStyle: "medium"})}</span>
                 </div>
-                <div class="description" style="display:none">
+                <div class="description hiddenDescription">
                     <p>${articles[i].description}</p>
                 </div>
-                <button class="ui primary basic button descButton" onclick="readLessOrMore.call(this)">Show Description</button>
+                ${articles[i].description ? '<button class="ui primary basic button descButton" onclick="readLessOrMore.call(this)">Show Description</button>' : '<button class="ui primary basic disabled button">No Description</button>'}
             </div>
         </div>`);
     }

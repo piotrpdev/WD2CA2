@@ -4,10 +4,23 @@ function autoFill() {
 }
 
 $(document).ready(() => {
+    $('.special.cards .image').dimmer({
+      on: 'hover'
+    });
+
+    $(".image .button").each(function () {
+      $(this).click(function () {
+        $(".image .button").parents(".card").removeClass("selectedCard");
+        $(this).parents(".card").addClass("selectedCard").transition('pulse');
+      });
+    })
+
     $(".dropdown").dropdown();
     $('textarea#details').richText();
 
-    autoFill();
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+      autoFill()
+    }
 
     const rand1 = Math.floor(Math.random() * 10) + 1;
     const rand2 = Math.floor(Math.random() * 10) + 1;

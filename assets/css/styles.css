@@ -35,10 +35,6 @@ body {
     margin-top: 1em;
 }
 
-.descButton {
-    margin-top: 1em !important;
-}
-
 [data-fancybox="thumbs"]:hover {
     transform: scale(1.05);
     cursor: pointer;
@@ -54,4 +50,33 @@ body {
 
 .list > p > a:nth-last-child(2) {
   margin-right: 0.3em !important;
+}
+
+.hiddenDescription {
+  display: none;
+}
+
+.form .ui.cards {
+  margin-top: 0px;
+}
+
+.ui.cards > .card.selectedCard {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#news .item .button {
+  margin-top: 1em;
+}
+
+#general-container .segment {
+  padding: 2em;
+}
+
+.about .cards {
+  justify-content: center;
+}
+
+.about .card .content > .description {
+  margin-top: 1em !important;
 }
