@@ -931,12 +931,15 @@ const fallback_news = {
   ],
 };
 
-const useLiveNewsInDev = false;
+const useLiveNewsInDev = true;
 
 let news = {};
 
 async function useLiveNews() {
+  console.log("Waiting for news to load...")
   news = await (await fetch("https://saurav.tech/NewsAPI/top-headlines/category/entertainment/gb.json")).json();
+  console.log("Loading news")
+  load();
 }
 
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
@@ -947,6 +950,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
   } else {
     console.log("Using fallback news")
     news = fallback_news;
+    load();
   }
 } else {
   useLiveNews();

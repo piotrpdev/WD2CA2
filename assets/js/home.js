@@ -31,7 +31,7 @@ function addArticles(articles = news.articles, articleStart = 5, articleEnd = ar
     }
 }
 
-$(document).ready(() => {
+function load() {
     Fancybox.bind('[data-fancybox="thumbs"]', {
         infinite: false,
         caption: function (_, carousel, slide) {
@@ -41,8 +41,6 @@ $(document).ready(() => {
       },
     });
 
-    console.log('main.js loaded');
-
     articleStart = 5;
 
     addArticles(news.articles, articleStart);
@@ -51,5 +49,9 @@ $(document).ready(() => {
         articleStart += 5;
         addArticles(news.articles, articleStart);
     });
+}
+
+$(document).ready(() => {
+    console.log('main.js loaded');
 });
   
