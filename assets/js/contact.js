@@ -38,7 +38,8 @@ $(document).ready(() => {
     $("form").submit((e) => {
       e.preventDefault();
 
-      console.log(`${rand1 + rand2}`);
+      // console.log(`${rand1 + rand2}`);
+
       if ($('#captcha').val() === `${rand1 + rand2}`) {
         $(".ui.basic.modal")
           .modal("setting", "transition", "fade")
@@ -53,9 +54,12 @@ $(document).ready(() => {
         $('#captcha')[0].reportValidity();
 
         if (!listenerSet) {
-          $('#captcha').on('change', () => {
+          $('#captcha').keyup(() => {
             $('#captcha')[0].setCustomValidity('');
             $('#captcha')[0].reportValidity();
+
+            listenerSet = false;
+            $('#captcha').off('keyup');
           });
           
           listenerSet = true;

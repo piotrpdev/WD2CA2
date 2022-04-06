@@ -80,3 +80,56 @@ body {
 .about .card .content > .description {
   margin-top: 1em !important;
 }
+
+.about p {
+  font-size: 16px;
+}
+
+#form-container label {
+  font-size: 14px;
+}
+
+#form-container p {
+  font-size: 15px;
+}
+
+.richText-editor {
+  font-size: 16px;
+}
+
+.ui.menu {
+  font-size: 15px;
+}
+
+.ui.items > .item > .content > .header:not(.ui) {
+  font-size: 20px;
+}
+
+.ui.items > .item > .content > .description {
+  font-size: 16px;
+  margin-top: 18px;
+}
+
+.ui.items > .item .meta, #loadMore {
+  font-size: 16px;
+}
+
+.ui.card > .content, .ui.cards > .card > .content {
+  font-size: 15px;
+}
+
+.about img {
+  cursor: pointer;
+}
+
+.newImg {
+  position: absolute;
+}
+
+.ui.animated.list .description {
+  max-width: 900px;
+}
+
+.ui.animated.list > .item {
+  margin-top: 30px;
+}
