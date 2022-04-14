@@ -931,7 +931,7 @@ const fallback_news = {
   ],
 };
 
-const useLiveNewsInDev = true;
+const useLiveNewsInDev = false;
 
 let news = {};
 

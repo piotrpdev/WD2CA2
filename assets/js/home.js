@@ -43,11 +43,22 @@ function load() {
 
     articleStart = 5;
 
-    addArticles(news.articles, articleStart);
+    Handlebars.registerHelper('formatDate', (date) => {
+        return new Date(date || Date.now()).toLocaleDateString("en-IE", {dateStyle: "medium"});
+    });
+
+    let template = Handlebars.compile($('#newsTemplate').html())
+
+    let output = template({ articles: news.articles.slice(articleStart, articleStart + 5) });
+
+    $('#news').append(output);
+
+    // addArticles(news.articles, articleStart); // Generate articles without handlebars
 
     $('#loadMore').on('click', () => {
         articleStart += 5;
-        addArticles(news.articles, articleStart);
+        output = template({ articles: news.articles.slice(articleStart, articleStart + 5) });
+        $('#news').append(output);
     });
 }
 
